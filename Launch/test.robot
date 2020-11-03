@@ -40,7 +40,6 @@ Launch Case
     ${captcha_text}  Solve Captcha
     Log To Console  ${captcha_text}
 
-
 *** Keywords ***
 Open Browser Max Size
     Open Browser                    https://rosreestr.ru  chrome
