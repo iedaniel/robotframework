@@ -26,13 +26,14 @@ Launch Case
     Click Element                   //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div
 
     Do Full Iteration
-    Do Full Iteration
-    Do Full Iteration
+#    Do Full Iteration
+#    Do Full Iteration
 
 *** Keywords ***
 Open Browser Max Size
     Open Browser                    https://rosreestr.ru  chrome
 #    Maximize Browser Window
+    Create Session  xEvil  http://127.0.0.1:80
 
 Login By Credentials
     Wait And Input                 //*[@id="mobileOrEmail"]     ${login}
@@ -57,7 +58,6 @@ Wait And Get Text
 
 Solve Captcha
     ${file}  Get Binary File  ${captcha_location}
-    Create Session  xEvil  http://127.0.0.1:80
     ${files}  Create Dictionary  file=${file}
     ${response}  Post Request  xEvil  /in.php  files=${files}
     ${strip}  Strip String  ${response.text}  characters=OK|*
@@ -84,4 +84,4 @@ Do Full Iteration
     Wait And Input                  //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div[3]/div/div/div/div[1]/div/div/div/div[3]/div/div/div/div[1]/div/div/div/div[1]/div/input  ${captcha_text}
     Wait And Click                  //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div[4]/div/div/div/div[1]/div/div/div/div[1]
     Sleep  1s
-    Press Keys                      None  ESCAPE
+#    Press Keys                      None  ESCAPE

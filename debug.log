@@ -201,3 +201,4 @@
 [1104/024231.395:ERROR:exception_snapshot_win.cc(99)] thread ID 2476 not found in process
 [1104/024231.457:ERROR:process_reader_win.cc(123)] NtOpenThread: {Отказано в доступе} Процесс запросил доступ к объекту, но права на доступ не предоставлены. (0xc0000022)
 [1104/024231.457:ERROR:exception_snapshot_win.cc(99)] thread ID 15564 not found in process
+[1104/140529.964:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
