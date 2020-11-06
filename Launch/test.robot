@@ -12,17 +12,17 @@ ${captcha_location}                 Captchas/captcha.png
 
 *** Test Cases ***
 Launch Case
-    Wait And Click                  //*[@id="top_panel"]/a
-
-    Login By Credentials
-
-    Wait And Click                  //*[@id="wrapperId"]/div/nav/div[1]/ul[1]/li[4]/div
-
-    ${key}  Wait And Get Text       //*[@id="wrapperId"]/div/div[5]/div/div/ng-form/div/div[1]/div[2]/strong
+#    Wait And Click                  //*[@id="top_panel"]/a
+#
+#    Login By Credentials
+#
+#    Wait And Click                  //*[@id="wrapperId"]/div/nav/div[1]/ul[1]/li[4]/div
+#
+#    ${key}  Wait And Get Text       //*[@id="wrapperId"]/div/div[5]/div/div/ng-form/div/div[1]/div[2]/strong
 
     Go To                           https://rosreestr.ru/wps/portal/p/cc_present/ir_egrn
 
-    Wait And Input                  //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div/div[2]/div/div/div/div[2]/div/div/div[1]/div/input  ${key}
+    Wait And Input                  //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div/div[2]/div/div/div/div[2]/div/div/div[1]/div/input  a2e63193-4ba0-40b7-8b95-9e0492dbf62c
     Click Element                   //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div
 
     Do Full Iteration
