@@ -9,30 +9,21 @@ Test Setup  Open Browser Max Size
 ${login}                            89856615000
 ${password}                         Pf,bzrf8504.
 ${captcha_location}                 Captchas/captcha.png
+${egrn_access_key}                  a2e63193-4ba0-40b7-8b95-9e0492dbf62c
 
 *** Test Cases ***
 Launch Case
-#    Wait And Click                  //*[@id="top_panel"]/a
-#
-#    Login By Credentials
-#
-#    Wait And Click                  //*[@id="wrapperId"]/div/nav/div[1]/ul[1]/li[4]/div
-#
-#    ${key}  Wait And Get Text       //*[@id="wrapperId"]/div/div[5]/div/div/ng-form/div/div[1]/div[2]/strong
-
-    Go To                           https://rosreestr.ru/wps/portal/p/cc_present/ir_egrn
-
-    Wait And Input                  //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div/div[2]/div/div/div/div[2]/div/div/div[1]/div/input  a2e63193-4ba0-40b7-8b95-9e0492dbf62c
+    Wait And Input                  //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div/div[2]/div/div/div/div[2]/div/div/div[1]/div/input  ${egrn_access_key}
     Click Element                   //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div
 
     Do Full Iteration
-#    Do Full Iteration
-#    Do Full Iteration
+    Do Full Iteration
+    Do Full Iteration
 
 *** Keywords ***
 Open Browser Max Size
-    Open Browser                    https://rosreestr.ru  chrome
-#    Maximize Browser Window
+    Open Browser                    https://rosreestr.ru/wps/portal/p/cc_present/ir_egrn  chrome
+    Maximize Browser Window
     Create Session  xEvil  http://127.0.0.1:80
 
 Login By Credentials
@@ -84,4 +75,4 @@ Do Full Iteration
     Wait And Input                  //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div[3]/div/div/div/div[1]/div/div/div/div[3]/div/div/div/div[1]/div/div/div/div[1]/div/input  ${captcha_text}
     Wait And Click                  //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div[4]/div/div/div/div[1]/div/div/div/div[1]
     Sleep  1s
-#    Press Keys                      None  ESCAPE
+    Press Keys                      None  ESCAPE
