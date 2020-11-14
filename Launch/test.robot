@@ -22,9 +22,8 @@ Launch Case
 
 *** Keywords ***
 Open Browser Max Size
-    Open Browser                    https://rosreestr.ru/wps/portal/p/cc_present/ir_egrn  chrome
-    Maximize Browser Window
-    Create Session  xEvil  http://127.0.0.1:80
+    Open Browser                    https://rosreestr.ru/wps/portal/p/cc_present/ir_egrn  chrome  options=add_argument("--start-fullscreen")
+    Create Session                  xEvil  http://127.0.0.1:80
 
 Login By Credentials
     Wait And Input                 //*[@id="mobileOrEmail"]     ${login}
