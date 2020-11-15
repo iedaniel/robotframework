@@ -10,6 +10,7 @@ ${login}                            89856615000
 ${password}                         Pf,bzrf8504.
 ${captcha_location}                 Captchas/captcha.png
 ${egrn_access_key}                  a2e63193-4ba0-40b7-8b95-9e0492dbf62c
+${endless}                          999999
 
 *** Test Cases ***
 Launch Case
@@ -65,7 +66,7 @@ Input Captcha
     Wait And Input                  //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div[3]/div/div/div/div[1]/div/div/div/div[3]/div/div/div/div[1]/div/div/div/div[1]/div/input  ${captcha_text}
     Wait And Click                  //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div[4]/div/div/div/div[1]/div/div/div/div[1]
     Sleep  1s
-    Page Should Not Contain  Введите текст с картинки
+    Page Should Contain Element     class:popupContent
 
 Do Full Iteration
     Wait And Click                  //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[1]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div/div[1]/div/div/span/span
@@ -77,7 +78,7 @@ Do Full Iteration
 
     Wait And Click                  //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[5]/div/div/div[2]/div[1]/table/tbody/tr
 
-    FOR  ${i}  IN RANGE  999999
+    FOR  ${i}  IN RANGE  ${endless}
         Log To Console  ${i}
         ${captcha_done}  Run Keyword And Return Status  Input Captcha
         Exit For Loop If  ${captcha_done}
