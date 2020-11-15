@@ -16,13 +16,13 @@ Launch Case
     Wait And Input                  //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div/div[2]/div/div/div/div[2]/div/div/div[1]/div/input  ${egrn_access_key}
     Click Element                   //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div
 
-    Do Full Iteration
-    Do Full Iteration
-    Do Full Iteration
+    Run Keyword And Return Status  Do Full Iteration
+    Run Keyword And Return Status  Do Full Iteration
+    Run Keyword And Return Status  Do Full Iteration
 
 *** Keywords ***
 Open Browser Max Size
-    Open Browser                    https://rosreestr.ru/wps/portal/p/cc_present/ir_egrn  chrome  options=add_argument("--start-fullscreen")
+    Open Browser                    https://rosreestr.ru/wps/portal/p/cc_present/ir_egrn  chrome  options=add_argument("--start-fullscreen");add_argument("--headless")
     Create Session                  xEvil  http://127.0.0.1:80
 
 Login By Credentials
