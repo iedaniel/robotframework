@@ -18,9 +18,7 @@ Launch Case
     Wait And Input                  //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div/div[2]/div/div/div/div[2]/div/div/div[1]/div/input  ${egrn_access_key}
     Click Element                   //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div
 
-    Do Full Iteration
-    Do Full Iteration
-    Do Full Iteration
+    Repeat Keyword  10  Do Full Iteration
 
 *** Keywords ***
 Open Browser Max Size
@@ -91,3 +89,5 @@ Do Full Iteration
     END
 
     Wait And Click                  class:v-window-closebox
+
+#Локатор id запроса - /html/body/div[5]/div/div/div/div[3]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div[2]/div/div/b
