@@ -64,7 +64,8 @@ Input Captcha
     Wait And Click                  //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div[3]/div/div/div/div[1]/div/div/div/div[3]/div/div/div/div[1]/div/div/div/div[1]/div/input
     Wait And Input                  //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div[3]/div/div/div/div[1]/div/div/div/div[3]/div/div/div/div[1]/div/div/div/div[1]/div/input  ${captcha_text}
     Wait And Click                  //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div[4]/div/div/div/div[1]/div/div/div/div[1]
-    Page Should Not Contain Element  //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div[3]/div/div/div/div[1]/div/div/div/div[2]/div/div/div/div[1]/div/div/img
+    Sleep  1s
+    Page Should Not Contain  Введите текст с картинки
 
 Do Full Iteration
     Wait And Click                  //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[1]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div/div[1]/div/div/span/span
@@ -78,9 +79,9 @@ Do Full Iteration
 
     FOR  ${i}  IN RANGE  999999
         Log To Console  ${i}
-        ${success}  Run Keyword And Return Status  Input Captcha
-        Exit For Loop If  ${success}
+        ${captcha_done}  Run Keyword And Return Status  Input Captcha
+        Exit For Loop If  ${captcha_done}
+        Log To Console  ${captcha_done}
     END
 
-    Sleep  1s
     Press Keys                      None  ESCAPE
