@@ -3,6 +3,7 @@ Library  SeleniumLibrary
 Library  OperatingSystem
 Library  RequestsLibrary
 Library  String
+Library  Dialogs
 Test Setup  Open Browser Max Size
 
 *** Variables ***
@@ -47,6 +48,10 @@ Wait And Get Text
     ${result}  Get Text            ${locator}
     [Return]                       ${result}
 
+Mock Captcha
+    ${mock}  Get Value From User  Type Captcha
+    [Return]  ${mock}
+
 Solve Captcha
     ${file}  Get Binary File  ${captcha_location}
     ${files}  Create Dictionary  file=${file}
@@ -65,8 +70,8 @@ Input Captcha
     Wait And Input                  //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div[3]/div/div/div/div[1]/div/div/div/div[3]/div/div/div/div[1]/div/div/div/div[1]/div/input  ${captcha_text}
     Wait And Click                  //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div[4]/div/div/div/div[1]/div/div/div/div[1]
     Sleep  1s
-    ${exceed}  Run Keyword And Return Status  Page Should Contain               Превышен интервал
-    Run Keyword Unless  ${exceed}  Page Should Contain                          Ваш запрос зарегистрирован
+    ${exceed}  Run Keyword And Return Status    Page Should Contain                 Превышен интервал
+    Run Keyword Unless  ${exceed}               Page Should Contain                 Ваш запрос зарегистрирован
 
 Do Full Iteration
     Wait And Click                  //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[1]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div/div[1]/div/div/span/span
