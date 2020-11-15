@@ -17,9 +17,9 @@ Launch Case
     Wait And Input                  //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div/div[2]/div/div/div/div[2]/div/div/div[1]/div/input  ${egrn_access_key}
     Click Element                   //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div
 
-    Run Keyword And Return Status  Do Full Iteration
-    Run Keyword And Return Status  Do Full Iteration
-    Run Keyword And Return Status  Do Full Iteration
+    Do Full Iteration
+    Do Full Iteration
+    Do Full Iteration
 
 *** Keywords ***
 Open Browser Max Size
@@ -54,7 +54,6 @@ Solve Captcha
     ${strip}  Strip String  ${response.text}  characters=OK|*
     ${response}  Get Request  xEvil  /res.php?id=${strip}&action=get
     ${strip}  Strip String  ${response.text}  characters=OK|*
-    Log To Console  ${strip}
     [Return]  ${strip}
 
 Input Captcha
@@ -66,23 +65,24 @@ Input Captcha
     Wait And Input                  //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div[3]/div/div/div/div[1]/div/div/div/div[3]/div/div/div/div[1]/div/div/div/div[1]/div/input  ${captcha_text}
     Wait And Click                  //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div[4]/div/div/div/div[1]/div/div/div/div[1]
     Sleep  1s
-    Page Should Contain Element     class:popupContent
+    ${exceed}  Run Keyword And Return Status  Page Should Contain               Превышен интервал
+    Run Keyword Unless  ${exceed}  Page Should Contain                          Ваш запрос зарегистрирован
 
 Do Full Iteration
     Wait And Click                  //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[1]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div/div[1]/div/div/span/span
 
     Wait And Input                  //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[2]/div/div/div[2]/div/div/div/div/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div[1]/div/input  50:15:0000000:33365
     Input Text                      //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[2]/div/div/div[2]/div/div/div/div/div[2]/div/div/div/div[3]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div[1]/div/div/div/div[1]/div[1]/div/input  Московская область
+    Wait Until Element Is Enabled   //*[@id="VAADIN_COMBOBOX_OPTIONLIST"]/div/div[2]/table/tbody/tr/td/span  15s
+    Wait Until Element Contains     //*[@id="VAADIN_COMBOBOX_OPTIONLIST"]/div/div[2]/table/tbody/tr/td/span  Московская область  15s
     Wait And Click                  //*[@id="VAADIN_COMBOBOX_OPTIONLIST"]/div/div[2]/table/tbody/tr/td/span
     Click Element                   //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[3]/div/div/div/div[1]/div/div/div/div[1]/div/div
 
     Wait And Click                  //*[@id="v-Z7_01HA1A42KODT90AR30VLN22003"]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/div[5]/div/div/div[2]/div[1]/table/tbody/tr
 
     FOR  ${i}  IN RANGE  ${endless}
-        Log To Console  ${i}
         ${captcha_done}  Run Keyword And Return Status  Input Captcha
         Exit For Loop If  ${captcha_done}
-        Log To Console  ${captcha_done}
     END
 
-    Press Keys                      None  ESCAPE
+    Wait And Click                  class:v-window-closebox
