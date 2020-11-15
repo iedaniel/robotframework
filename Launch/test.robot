@@ -81,5 +81,6 @@ Do Full Iteration
         ${success}  Run Keyword And Return Status  Input Captcha
         Exit For Loop If  ${success}
     END
+
     Sleep  1s
     Press Keys                      None  ESCAPE
